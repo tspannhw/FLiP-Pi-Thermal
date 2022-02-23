@@ -27,7 +27,13 @@ SCD4X, Serial: d3efd3efd3ef
 2022-02-22 19:42:02.122 INFO  [3069204864] ClientConnection:256 | [192.168.1.204:34968 -> 192.168.1.230:6650] Destroyed connection
 
 ````
+### For Pulsar Python Client with AvroSchema
 
+```
+pip3 install fastavro
+pip3 install pytz
+pip3 install pulsar-client[avro]
+```
 ### References
 
 * https://github.com/tspannhw/minifi-gasthermal.git
