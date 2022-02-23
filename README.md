@@ -243,3 +243,4 @@ key:[thrm_twe_20220223151226], properties:[], content:.thrm_twe_20220223151226
 ### References
 
 * https://github.com/tspannhw/minifi-gasthermal.git
+* https://shop.pimoroni.com/products/mlx90640-thermal-camera-breakout?variant=12536948654163
