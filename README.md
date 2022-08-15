@@ -241,6 +241,13 @@ key:[thrm_twe_20220223151226], properties:[], content:.thrm_twe_20220223151226
               
 ````
 
+### Update See cloudsensors.py
+
+* Added sensors:  https://github.com/pimoroni/sgp30-python https://github.com/pimoroni/icp10125-python
+* https://github.com/tspannhw/FLiP-Py-Pi-GasThermal
+* https://github.com/tspannhw/FLiP-RP400
+
+
 ### References
 
 * https://github.com/tspannhw/minifi-gasthermal.git
