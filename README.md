@@ -247,6 +247,15 @@ key:[thrm_twe_20220223151226], properties:[], content:.thrm_twe_20220223151226
 * https://github.com/tspannhw/FLiP-Py-Pi-GasThermal
 * https://github.com/tspannhw/FLiP-RP400
 
+### New Topic
+
+persistent://public/default/thermalextsensors-partition-0
+
+### JSON Record
+
+````
+
+{'uuid': 'thrml_qrd_20220815210608', 'ipaddress': '192.168.1.204', 'cputempf': 99, 'runtime': 0, 'host': 'thermal', 'hostname': 'thermal', 'macaddress': 'e4:5f:01:7c:3f:34', 'endtime': '1660597568.8098733', 'te': '0.0006055831909179688', 'cpu': 5.3, 'diskusage': '104566.9 MB', 'memory': 9.6, 'rowid': '20220815210608_86b11303-1956-48af-98ed-c9789c9231c0', 'systemtime': '08/15/2022 17:06:13', 'ts': 1660597573, 'starttime': '08/15/2022 17:06:08', 'datetimestamp': '2022-08-15 21:06:12.574090+00:00', 'temperature': 23.8026, 'humidity': 39.59, 'co2': 1184.0, 'totalvocppb': '  0', 'equivalentco2ppm': '65535', 'pressure': 100877.87, 'temperatureicp': 75.0}
 
 ### References
 
