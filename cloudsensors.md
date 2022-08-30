@@ -62,7 +62,7 @@ class thermalext(Record):
 
 ````
 
-### Consumeed
+### Consume
 
 ````
 
@@ -148,7 +148,12 @@ Flink SQL> DESC thermalextsensors;
 
 
 select datetimestamp, temperature, humidity, co2, totalvocppb, equivalentco2ppm, pressure, temperatureicp
-from thermalextsensors
+from thermalextsensors;
+
+select max(cputempf) as MaxCpuTempf, max(temperature) as MaxTemp, max(humidity) as MaxHumidity, 
+       max(co2) as MaxCo2, max(totalvocppb) as MaxVocPPB, 
+       max(equivalentco2ppm) as MaxCo2PPM, max(pressure) as MaxPressure, max(temperatureicp) as MaxTempICP
+from thermalextsensors;
 
 ````
 
