@@ -1,3 +1,7 @@
+#### But this one goes to 11
+
+![Device](https://github.com/tspannhw/FLiP-Pi-Thermal/raw/main/deviceAll.png)
+
 #### More Sensors
 
 This is a added sensors to the existing Raspberry Pi / Thermal device we had.
