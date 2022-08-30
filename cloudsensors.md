@@ -1,5 +1,7 @@
 #### More Sensors
 
+This is a added sensors to the existing Raspberry Pi / Thermal device we had.
+
 #### Topic
 
 persistent://public/default/thermalextsensors-partition-0
@@ -10,6 +12,36 @@ persistent://public/default/thermalextsensors-partition-0
 
 python3 /opt/demo/cloudsensors.py -t persistent://public/default/thermalextsensors -su pulsar://pulsar1:6650
 
+````
+
+#### Python Record
+
+````
+class thermalext(Record):
+    uuid = String(required=True)
+    ipaddress = String(required=True)
+    cputempf = Integer(required=True)
+    runtime = Integer(required=True)
+    host = String(required=True)
+    hostname = String(required=True)
+    macaddress = String(required=True)
+    endtime = String(required=True)
+    te = String(required=True)
+    cpu = Float(required=True)
+    diskusage = String(required=True)
+    memory = Float(required=True)
+    rowid = String(required=True)
+    systemtime = String(required=True)
+    ts = Integer(required=True)
+    starttime = String(required=True)
+    datetimestamp = String(required=True)
+    temperature = Float(required=True)
+    humidity = Float(required=True)
+    co2 =  Float(required=True)
+    totalvocppb = String(required=True)
+    equivalentco2ppm = String(required=True)
+    pressure = Float(required=True)
+    temperatureicp = Float(required=True)
 ````
 
 #### JSON Sensor Data
@@ -27,5 +59,58 @@ python3 /opt/demo/cloudsensors.py -t persistent://public/default/thermalextsenso
 'temperature': 31.5251, 'humidity': 42.71, 'co2': 572.0, 
 'totalvocppb': '  0', 'equivalentco2ppm': '65535', 'pressure': 100670.76, 'temperatureicp': 85.0
 }
+
+````
+
+## Flink SQL Setup
+
+# Flink table
+
+````
+CREATE CATALOG pulsar WITH (
+   'type' = 'pulsar',
+   'service-url' = 'pulsar://pulsar1:6650',
+   'admin-url' = 'http://pulsar1:8080',
+   'format' = 'json'
+);
+
+USE CATALOG pulsar;
+
+SHOW TABLES;
+
+Flink SQL> DESC thermalextsensors;
++------------------+--------+-------+-----+--------+-----------+
+|             name |   type |  null | key | extras | watermark |
++------------------+--------+-------+-----+--------+-----------+
+|             uuid | STRING | false |     |        |           |
+|        ipaddress | STRING | false |     |        |           |
+|         cputempf |    INT | false |     |        |           |
+|          runtime |    INT | false |     |        |           |
+|             host | STRING | false |     |        |           |
+|         hostname | STRING | false |     |        |           |
+|       macaddress | STRING | false |     |        |           |
+|          endtime | STRING | false |     |        |           |
+|               te | STRING | false |     |        |           |
+|              cpu |  FLOAT | false |     |        |           |
+|        diskusage | STRING | false |     |        |           |
+|           memory |  FLOAT | false |     |        |           |
+|            rowid | STRING | false |     |        |           |
+|       systemtime | STRING | false |     |        |           |
+|               ts |    INT | false |     |        |           |
+|        starttime | STRING | false |     |        |           |
+|    datetimestamp | STRING | false |     |        |           |
+|      temperature |  FLOAT | false |     |        |           |
+|         humidity |  FLOAT | false |     |        |           |
+|              co2 |  FLOAT | false |     |        |           |
+|      totalvocppb | STRING | false |     |        |           |
+| equivalentco2ppm | STRING | false |     |        |           |
+|         pressure |  FLOAT | false |     |        |           |
+|   temperatureicp |  FLOAT | false |     |        |           |
++------------------+--------+-------+-----+--------+-----------+
+24 rows in set
+
+
+select datetimestamp, temperature, humidity, co2, totalvocppb, equivalentco2ppm, pressure, temperatureicp
+from thermalextsensors
 
 ````
